@@ -102,4 +102,9 @@ Deployment
 
 # Current Status
 
-* Initialization Started
+* [x] Project foundation
+* [x] Requirement and domain design
+* [x] Architecture and database design
+* [x] User persistence
+* [x] Role persistence
+* [x] Address persistence
