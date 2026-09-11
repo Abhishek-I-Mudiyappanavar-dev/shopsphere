@@ -6,12 +6,14 @@ import com.shopsphere.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,8 +31,8 @@ public class Address {
     @GeneratedValue (strategy=GenerationType.UUID)
     private UUID id;
 
-    @Column (name="street", nullable=false)
-    private String street;
+    @Column (name="addressLine", nullable=false)
+    private String addressLine;
 
     @Column(name="city", nullable=false)
     private String city;
@@ -47,8 +49,12 @@ public class Address {
     @Column(name="phone_number", nullable=false)
     private String phoneNumber;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="address_type", nullable=false)
+    private AddressType addressType = AddressType.HOME;
+
     @Column(name="is_default", nullable=false)
-    private boolean isDefault;
+    private boolean isDefault = false;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
