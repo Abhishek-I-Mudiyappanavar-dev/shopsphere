@@ -3,6 +3,7 @@ package com.shopsphere.user;
 import java.time.OffsetDateTime;
 import java.util.Set;
 import java.util.UUID;
+import java.util.HashSet;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -49,8 +50,8 @@ public class User {
     @Column(name="password", nullable=false)
     private String password;
 
-    @Column(name="enabled", nullable=false)
-    private boolean enabled;
+    @Column(name="enabled")
+    private boolean enabled = true;
 
     @CreationTimestamp
     @Column(name="created_at")
@@ -67,7 +68,7 @@ public class User {
         joinColumns = @JoinColumn(name="user_id"),
         inverseJoinColumns = @JoinColumn(name="role_id")
     )
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy="user")
     private Set<Address> addresses;
