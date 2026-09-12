@@ -5,12 +5,15 @@ import lombok.*;
 import com.shopsphere.role.RoleName;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
+
+    private UUID Id;
 
     private String firstName;
 
