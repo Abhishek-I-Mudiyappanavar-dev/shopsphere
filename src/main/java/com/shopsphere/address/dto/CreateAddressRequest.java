@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @Setter
-@AllArgsConstructor
+// @AllArgsConstructor
 @NoArgsConstructor
 public class CreateAddressRequest {
 
